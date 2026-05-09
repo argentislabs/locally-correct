@@ -63,7 +63,7 @@ checks every assertion against disk:
 uv run python -m eval.verify_citations docs/paper_01_citation_log.json
 ```
 
-Expected: `84 assertions verified` and exit code 0.
+Expected: `43 assertions verified` and exit code 0.
 
 ## Repository layout
 
