@@ -1,0 +1,55 @@
+[project]
+name = "argentis-authority-partition"
+version = "0.1.0"
+description = "Authority partition: deterministic predicate dispatch over typed institutional state. Companion code to Argentis Labs Working Paper 01."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Argentis Labs", email = "research@argentislabs.io" },
+]
+requires-python = ">=3.11"
+keywords = [
+    "authorization",
+    "verification",
+    "autonomous-systems",
+    "llm-as-judge",
+    "institutional-trust",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+
+dependencies = [
+    "openai>=1.40.0",
+    "pydantic>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+]
+
+[project.urls]
+Homepage = "https://argentislabs.io/research/locally-correct"
+Repository = "https://github.com/argentislabs/locally-correct"
+Paper    = "https://argentislabs.io/research/locally-correct"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/authority_partition"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

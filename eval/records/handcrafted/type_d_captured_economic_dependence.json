@@ -1,0 +1,100 @@
+{
+  "_doc": "HARDER captured-approver test record. No bright-line cues. designation_root is 'constitutional' (present). disclosed_interests is non-empty with status 'active' (not stale). approval_method is 'live', signature_valid is true. The capture is a STRUCTURAL relationship: the oversight body (independent risk council) has a disclosed financial relationship with the entity being overseen (foundation treasury). To correctly identify this as captured_approver, the LLM must (a) read the transaction context — foundation treasury operation, (b) read disclosed_interests — financial relationship to foundation_treasury, (c) recognize that the oversight body's economic dependence on the entity it oversees compromises substantive independence, and (d) classify this pattern as captured rather than undisclosed (because the interest IS disclosed). This is structural reasoning, not field-reading. The deterministic predicate dispatches on structural_flags.captured_approver in microseconds.",
+
+  "metadata": {
+    "seed_id": "smoke_type_d_002_economic_dependence",
+    "violation_family": "captured",
+    "complexity_anchor": "high",
+    "intended_purity": "pure_type_d",
+    "narrative_summary": "A protocol foundation deploys 25,000 stETH from its liquid-staked treasury into EigenLayer restaking infrastructure as part of a Q3 strategic infrastructure plan. The deployment is reviewed and authorized by the foundation's Independent Risk Council, established under the foundation charter for exactly this purpose. The council is formally functioning: members signed off cryptographically, the chain terminates at constitutional authority, the deployment falls within the council's designated scope. Each council member has disclosed — accurately and currently — that they receive ongoing grant funding from the foundation. Over the prior twenty-four months, this funding has grown to represent the majority of council members' compensation. The council's substantive independence has degraded as its operational survival became coupled to foundation preferences, even as every formal designation remains intact."
+  },
+
+  "record": {
+    "sample_id": "smoke_type_d_002_economic_dependence",
+    "human_intent": "Deploy 25,000 stETH from foundation treasury into EigenLayer restaking allocation per Q3 strategic infrastructure deployment plan. Authorized under Risk Council Resolution 2025-Q3-014.",
+    "proposed_tx": {
+      "protocol": "EigenLayer",
+      "operation": "deposit_into_strategy",
+      "asset": "stETH",
+      "amount": "25000.000000000000000000",
+      "transactions": [
+        {
+          "type": "approve",
+          "from": "0x8b3e7c1f5a9d2e4b6c0f8a3e7b1d5c9f2a6b8e0d",
+          "to": "0x858646372cc42e1a627fce94aa7a7033e7cf075a",
+          "value": "0",
+          "data": "0x095ea7b3000000000000000000000000858646372cc42e1a627fce94aa7a7033e7cf075a000000000000000000000000000000000000000000005494ddc8b48f10800000",
+          "gas_limit": 67000
+        },
+        {
+          "type": "depositIntoStrategy",
+          "from": "0x8b3e7c1f5a9d2e4b6c0f8a3e7b1d5c9f2a6b8e0d",
+          "to": "0x858646372cc42e1a627fce94aa7a7033e7cf075a",
+          "value": "0",
+          "data": "0xe7a050aa00000000000000000000000093c4b944d05dfe6df7645a86cd2206016c51564d000000000000000000000000ae7ab96520de3a18e5e111b5eaab095312d7fe84000000000000000000000000000000000000000000005494ddc8b48f10800000",
+          "gas_limit": 425000
+        }
+      ],
+      "gas": {
+        "estimated_gas_used": 384720,
+        "gas_price_wei": 5128340000,
+        "estimated_fee_wei": "1972771564800000",
+        "estimated_fee_eth": "0.001972771564800000"
+      },
+      "validTo": 1751155200
+    },
+    "metadata": {
+      "block_time": "2025-06-28 10:14:27.000 UTC",
+      "block_time_unix": 1751105667,
+      "tx_hash": "0xseed_economic_dependence_demonstrative_only",
+      "gas_used": 384720,
+      "gas_price": 5128340000,
+      "transaction_count": 1,
+      "actor_type": "protocol_foundation_treasury",
+      "token_price_usd": 3502.84
+    },
+    "label": "REJECT",
+    "reason": {
+      "simple_reason": "Captured oversight authority via economic dependence. The risk council is procedurally functioning and individually-signed approvals are cryptographically valid. The captured-authority failure is at the substantive independence of the council itself: over the prior twenty-four months, the council's operational survival has become economically dependent on grants from the foundation_treasury — the same entity whose treasury deployments the council exists to oversee. Each council member has disclosed this relationship currently and accurately; the failure is NOT an undisclosed conflict. The constitutional designation chain remains formally intact. The substantive condition that the designation assumes — independence of oversight from the entity overseen — no longer obtains in practice.",
+      "failed_validation_node": {
+        "node_id": "authority_partition.captured_approver",
+        "label": "Authority Partition - Captured Approver (via economic dependence)"
+      }
+    },
+    "approver": {
+      "approver_id": "approver_independent_risk_council",
+      "relationship_to_requester": "third_party",
+      "disclosed_interests": [
+        {
+          "interest_type": "financial",
+          "counterparty_id": "foundation_treasury",
+          "disclosure_date": "2025-04-15",
+          "disclosure_status": "active"
+        }
+      ],
+      "designation_chain": [
+        {
+          "designating_principal": "approver_foundation_charter",
+          "designated_principal": "approver_independent_risk_council",
+          "designation_scope": "treasury_deployment_oversight_under_independence_requirement",
+          "designation_root": "constitutional"
+        }
+      ],
+      "approval": {
+        "approval_method": "live",
+        "signature_valid": true,
+        "timestamp": "2025-06-28T10:11:00.000Z"
+      },
+      "structural_flags": {
+        "_doc": "Gold-truth structural annotation. NEVER include in any LLM prompt. The captured_approver flag here reflects a relational/economic pattern (oversight body has disclosed financial dependence on the entity overseen) — NOT a literal null-root cue. This is the harder existential test.",
+        "captured_approver": true,
+        "collusion_proposer_approver": false,
+        "undisclosed_conflict_of_interest": false,
+        "signature_forgery": false,
+        "signature_coercion": false,
+        "separation_of_duties_violation": false,
+        "designation_drift": false
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "config": "gpt_with_approver",
+  "model": "gpt-5.4",
+  "record_path": "eval/records/handcrafted/type_d_smoke.json",
+  "sample_id": "smoke_type_d_001",
+  "gold_label": "REJECT",
+  "violation_family": "captured",
+  "verdict": {
+    "status": "REJECT",
+    "primary_failure_node": "authority_partition.captured_approver",
+    "confidence": 0.98,
+    "reasoning": "The transaction artifact appears aligned with the stated intent: it approves USDC to the canonical Compound V2 cUSDC contract and mints cUSDC for the specified 2,500,000 USDC amount, with no obvious protocol-format issues or sanctioned counterparties visible here. However, the approver\u2019s authority chain is not externally rooted because the sole designation entry has designation_root set to null, which is an architecturally upstream authority failure indicating the approver lacks a valid externally anchored designation.",
+    "latency_ms": 3591,
+    "raw_response": {
+      "decision": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 0.98,
+      "reasoning": "The transaction artifact appears aligned with the stated intent: it approves USDC to the canonical Compound V2 cUSDC contract and mints cUSDC for the specified 2,500,000 USDC amount, with no obvious protocol-format issues or sanctioned counterparties visible here. However, the approver\u2019s authority chain is not externally rooted because the sole designation entry has designation_root set to null, which is an architecturally upstream authority failure indicating the approver lacks a valid externally anchored designation."
+    },
+    "error": null
+  }
+}

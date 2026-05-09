@@ -1,0 +1,327 @@
+{
+  "_about": [
+    "Paper 01 \u2014 Locally Correct, Globally Wrong",
+    "Citation log: every empirical claim mapped to its on-disk trace file.",
+    "Each assert: at the given JSON path in the given file, the value equals the asserted value.",
+    "Verifier: python eval/verify_citations.py docs/paper_01_citation_log.json",
+    "Generated 2026-05-08.",
+    "PUBLIC RELEASE NOTE: This log omits the cleanliness_gate section. The gate's verdicts (CLEAN / passed_gate=true for both smoke records) are described in section 2 of the paper. The gate's implementation and per-record output traces are held in Argentis internal repos and will be released with Working Paper 03."
+  ],
+  "paper": {
+    "canonical_md": "docs/paper_01_locally_correct_globally_wrong.md",
+    "pdf_output": "papers/output/paper_01_locally_correct_globally_wrong.pdf",
+    "table_section": "section 3.3 Results"
+  },
+  "seeds": [
+    {
+      "id": "smoke_001",
+      "seed_file": "eval/records/handcrafted/type_d_smoke.json",
+      "sample_id": "smoke_type_d_001",
+      "intended_purity": "pure_type_d",
+      "violation_family": "captured",
+      "role": "sanity_check"
+    },
+    {
+      "id": "smoke_002",
+      "seed_file": "eval/records/handcrafted/type_d_captured_economic_dependence.json",
+      "sample_id": "smoke_type_d_002_economic_dependence",
+      "intended_purity": "pure_type_d",
+      "violation_family": "captured",
+      "role": "central_finding"
+    }
+  ],
+  "results_table": [
+    {
+      "row_id": "smoke_001__gpt_no_approver__gpt-5.4",
+      "record": "smoke_001",
+      "configuration": "gpt_no_approver, gpt-5.4",
+      "n_runs": 1,
+      "schema": "single_run",
+      "trace_file": "eval/results/smoke__gpt_no_approver__gpt-5.4__smoke_type_d_001.json",
+      "asserts": [
+        {
+          "path": "verdict.status",
+          "equals": "PASS"
+        },
+        {
+          "path": "verdict.primary_failure_node",
+          "equals": null
+        },
+        {
+          "path": "verdict.confidence",
+          "equals": 0.99
+        },
+        {
+          "path": "verdict.latency_ms",
+          "equals": 3794
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_001__gpt_with_approver__gpt-5.4",
+      "record": "smoke_001",
+      "configuration": "gpt_with_approver, gpt-5.4",
+      "n_runs": 5,
+      "schema": "n_run_aggregate",
+      "trace_file": "eval/results/smoke__gpt_with_approver__gpt-5.4__smoke_type_d_001__n5.json",
+      "asserts": [
+        {
+          "path": "aggregate.majority_status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "aggregate.majority_primary_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "aggregate.majority_status_share",
+          "equals": 1.0
+        },
+        {
+          "path": "aggregate.latency_ms_median",
+          "equals": 2841
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_001__gpt_with_approver__gpt-5.4-mini",
+      "record": "smoke_001",
+      "configuration": "gpt_with_approver, gpt-5.4-mini",
+      "n_runs": 1,
+      "schema": "single_run",
+      "trace_file": "eval/results/smoke__gpt_with_approver__gpt-5.4-mini__smoke_type_d_001.json",
+      "asserts": [
+        {
+          "path": "verdict.status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "verdict.primary_failure_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "verdict.confidence",
+          "equals": 0.98
+        },
+        {
+          "path": "verdict.latency_ms",
+          "equals": 1569
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_001__authority_partition",
+      "record": "smoke_001",
+      "configuration": "authority_partition",
+      "n_runs": 1,
+      "schema": "single_run_deterministic",
+      "trace_file": "eval/results/smoke__authority_partition__predicate-graph-v0__smoke_type_d_001.json",
+      "asserts": [
+        {
+          "path": "verdict.status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "verdict.primary_failure_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "verdict.confidence",
+          "equals": 1.0
+        },
+        {
+          "path": "verdict.latency_ms",
+          "equals": 0,
+          "paper_renders_as": "<1 ms"
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_001__composed__gpt-5.4",
+      "record": "smoke_001",
+      "configuration": "composed, gpt-5.4",
+      "n_runs": 1,
+      "schema": "single_run_composed",
+      "trace_file": "eval/results/smoke__composed__gpt-5.4__smoke_type_d_001.json",
+      "asserts": [
+        {
+          "path": "verdict.status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "verdict.primary_failure_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "verdict.confidence",
+          "equals": 1.0
+        },
+        {
+          "path": "verdict.latency_ms",
+          "equals": 3105
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_002__gpt_with_approver__gpt-5.4",
+      "record": "smoke_002",
+      "configuration": "gpt_with_approver, gpt-5.4",
+      "n_runs": 5,
+      "schema": "n_run_aggregate",
+      "trace_file": "eval/results/smoke__gpt_with_approver__gpt-5.4__smoke_type_d_002_economic_dependence__n5.json",
+      "asserts": [
+        {
+          "path": "aggregate.majority_status",
+          "equals": "PASS"
+        },
+        {
+          "path": "aggregate.majority_status_share",
+          "equals": 1.0
+        },
+        {
+          "path": "aggregate.majority_primary_node",
+          "equals": null
+        },
+        {
+          "path": "aggregate.latency_ms_median",
+          "equals": 3466
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_002__gpt_with_approver__gpt-5.4-mini",
+      "record": "smoke_002",
+      "configuration": "gpt_with_approver, gpt-5.4-mini",
+      "n_runs": 5,
+      "schema": "n_run_aggregate",
+      "trace_file": "eval/results/smoke__gpt_with_approver__gpt-5.4-mini__smoke_type_d_002_economic_dependence__n5.json",
+      "asserts": [
+        {
+          "path": "aggregate.majority_status",
+          "equals": "PASS"
+        },
+        {
+          "path": "aggregate.majority_status_share",
+          "equals": 1.0
+        },
+        {
+          "path": "aggregate.majority_primary_node",
+          "equals": null
+        },
+        {
+          "path": "aggregate.latency_ms_median",
+          "equals": 1604
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_002__authority_partition",
+      "record": "smoke_002",
+      "configuration": "authority_partition",
+      "n_runs": 5,
+      "schema": "n_run_aggregate_deterministic",
+      "trace_file": "eval/results/smoke__authority_partition__deterministic__smoke_type_d_002_economic_dependence__n5.json",
+      "asserts": [
+        {
+          "path": "aggregate.majority_status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "aggregate.majority_primary_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "aggregate.majority_status_share",
+          "equals": 1.0
+        },
+        {
+          "path": "aggregate.latency_ms_median",
+          "equals": 1,
+          "paper_renders_as": "<1 ms"
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_002__composed__gpt-5.4",
+      "record": "smoke_002",
+      "configuration": "composed, gpt-5.4",
+      "n_runs": 5,
+      "schema": "n_run_aggregate_composed",
+      "trace_file": "eval/results/smoke__composed__gpt-5.4__smoke_type_d_002_economic_dependence__n5.json",
+      "asserts": [
+        {
+          "path": "aggregate.majority_status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "aggregate.majority_primary_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "aggregate.majority_status_share",
+          "equals": 1.0
+        },
+        {
+          "path": "aggregate.latency_ms_median",
+          "equals": 2914
+        }
+      ]
+    },
+    {
+      "row_id": "smoke_002__composed__gpt-5.4-mini",
+      "record": "smoke_002",
+      "configuration": "composed, gpt-5.4-mini",
+      "n_runs": 5,
+      "schema": "n_run_aggregate_composed",
+      "trace_file": "eval/results/smoke__composed__gpt-5.4-mini__smoke_type_d_002_economic_dependence__n5.json",
+      "asserts": [
+        {
+          "path": "aggregate.majority_status",
+          "equals": "REJECT"
+        },
+        {
+          "path": "aggregate.majority_primary_node",
+          "equals": "authority_partition.captured_approver"
+        },
+        {
+          "path": "aggregate.majority_status_share",
+          "equals": 1.0
+        },
+        {
+          "path": "aggregate.latency_ms_median",
+          "equals": 1553
+        }
+      ]
+    }
+  ],
+  "prose_claims": [
+    {
+      "claim_id": "abstract__five_of_five_PASS_with_approver",
+      "paper_section": "Abstract",
+      "paper_text": "frontier LLM-as-judge configurations with full approver context approve the institutionally invalid record in five of five reruns at 0.93-0.97 confidence",
+      "derived_from": [
+        "smoke_002__gpt_with_approver__gpt-5.4",
+        "smoke_002__gpt_with_approver__gpt-5.4-mini"
+      ]
+    },
+    {
+      "claim_id": "section5__twenty_independent_attempts",
+      "paper_section": "section 5",
+      "paper_text": "neither frontier nor smaller-tier models, given full schema access and a vocabulary including the correct answer, produced it in twenty independent attempts at temperature 0.1",
+      "derivation": "5 runs each on smoke_002 across: gpt_with_approver gpt-5.4, gpt_with_approver gpt-5.4-mini, composed gpt-5.4 alignment subgraph, composed gpt-5.4-mini alignment subgraph = 20 LLM-with-approver attempts."
+    },
+    {
+      "claim_id": "section5__composed_recovers_5_of_5_both_models",
+      "paper_section": "section 5",
+      "paper_text": "The composed configuration recovered correct family attribution on smoke_002 in five of five reruns under both gpt-5.4 and gpt-5.4-mini",
+      "derived_from": [
+        "smoke_002__composed__gpt-5.4",
+        "smoke_002__composed__gpt-5.4-mini"
+      ]
+    }
+  ],
+  "provenance_notes": [
+    "smoke_001 was run once per configuration except gpt_with_approver x gpt-5.4 (5 runs). The section 3.3 caption and the n column in the table disclose this. smoke_001 is positioned as a sanity check (section 3.1), not as evidence for the central claim. The asymmetry does not affect any prose claim because all prose claims that invoke run counts ground in smoke_002 rows.",
+    "Authority-layer latency 0 ms (smoke_001) and 1 ms (smoke_002) in raw JSON is rendered as '<1 ms' in the paper. Each row's paper_renders_as field documents the transformation."
+  ]
+}

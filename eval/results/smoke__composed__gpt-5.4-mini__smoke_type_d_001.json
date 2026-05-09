@@ -1,0 +1,48 @@
+{
+  "config": "composed",
+  "model": "gpt-5.4-mini",
+  "record_path": "eval/records/handcrafted/type_d_smoke.json",
+  "sample_id": "smoke_type_d_001",
+  "gold_label": "REJECT",
+  "violation_family": "captured",
+  "verdict": {
+    "status": "REJECT",
+    "primary_failure_node": "authority_partition.captured_approver",
+    "confidence": 1.0,
+    "reasoning": "AUTHORITY subgraph REJECTED \u2192 authority_partition.captured_approver. Alignment subgraph independently returned PASS.",
+    "latency_ms": 1610,
+    "raw_response": {
+      "authority_subgraph": {
+        "status": "REJECT",
+        "primary_failure_node": "authority_partition.captured_approver",
+        "confidence": 1.0,
+        "reasoning": "Designation chain is formally present but substantively compromised, OR designation_root is null. (field=structural_flags.captured_approver, value=True)",
+        "latency_ms": 1,
+        "raw_response": {
+          "evaluated_predicates": 3,
+          "subgraph": "authority",
+          "field": "structural_flags.captured_approver",
+          "value": true,
+          "node": "authority_partition.captured_approver"
+        },
+        "error": null
+      },
+      "alignment_subgraph": {
+        "status": "PASS",
+        "primary_failure_node": null,
+        "confidence": 0.98,
+        "reasoning": "The transaction matches the intent: it approves and mints 2,500,000 USDC into the Compound V2 cUSDC market for deposit/yield generation. The asset, amount, protocol, and operation are all consistent, the contract addresses correspond to USDC and cUSDC, and there are no visible protocol, sanctions, or adversarial red flags in the provided artifact.",
+        "latency_ms": 1610,
+        "raw_response": {
+          "decision": "PASS",
+          "primary_failure_node": null,
+          "confidence": 0.98,
+          "reasoning": "The transaction matches the intent: it approves and mints 2,500,000 USDC into the Compound V2 cUSDC market for deposit/yield generation. The asset, amount, protocol, and operation are all consistent, the contract addresses correspond to USDC and cUSDC, and there are no visible protocol, sanctions, or adversarial red flags in the provided artifact."
+        },
+        "error": null
+      },
+      "decision_source": "authority"
+    },
+    "error": null
+  }
+}

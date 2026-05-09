@@ -1,0 +1,13 @@
+Locally Correct, Globally Wrong — Authority Partition
+Copyright 2026 Argentis Labs LLC
+
+This product includes software developed by Argentis Labs LLC.
+
+The research presented in `papers/paper_01_locally_correct_globally_wrong.pdf`
+and the implementing code in this repository accompany Argentis Labs Working
+Paper 01 (2026). Citation:
+
+    Argentis Labs Research. (2026). Locally Correct, Globally Wrong: A
+    state-surface partition for authorization verification in autonomous
+    systems. Argentis Labs Working Paper 01.
+    https://argentislabs.io/research/locally-correct

@@ -1,0 +1,105 @@
+{
+  "config": "authority_partition",
+  "model": "deterministic",
+  "n_runs": 5,
+  "record_path": "eval/records/handcrafted/type_d_captured_economic_dependence.json",
+  "sample_id": "smoke_type_d_002_economic_dependence",
+  "gold_label": "REJECT",
+  "gold_failure_node": "authority_partition.captured_approver",
+  "violation_family": "captured",
+  "verdicts": [
+    {
+      "status": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 1.0,
+      "reasoning": "Designation chain is formally present but substantively compromised, OR designation_root is null. (field=structural_flags.captured_approver, value=True)",
+      "latency_ms": 1,
+      "raw_response": {
+        "evaluated_predicates": 3,
+        "subgraph": "authority",
+        "field": "structural_flags.captured_approver",
+        "value": true,
+        "node": "authority_partition.captured_approver"
+      },
+      "error": null
+    },
+    {
+      "status": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 1.0,
+      "reasoning": "Designation chain is formally present but substantively compromised, OR designation_root is null. (field=structural_flags.captured_approver, value=True)",
+      "latency_ms": 1,
+      "raw_response": {
+        "evaluated_predicates": 3,
+        "subgraph": "authority",
+        "field": "structural_flags.captured_approver",
+        "value": true,
+        "node": "authority_partition.captured_approver"
+      },
+      "error": null
+    },
+    {
+      "status": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 1.0,
+      "reasoning": "Designation chain is formally present but substantively compromised, OR designation_root is null. (field=structural_flags.captured_approver, value=True)",
+      "latency_ms": 1,
+      "raw_response": {
+        "evaluated_predicates": 3,
+        "subgraph": "authority",
+        "field": "structural_flags.captured_approver",
+        "value": true,
+        "node": "authority_partition.captured_approver"
+      },
+      "error": null
+    },
+    {
+      "status": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 1.0,
+      "reasoning": "Designation chain is formally present but substantively compromised, OR designation_root is null. (field=structural_flags.captured_approver, value=True)",
+      "latency_ms": 1,
+      "raw_response": {
+        "evaluated_predicates": 3,
+        "subgraph": "authority",
+        "field": "structural_flags.captured_approver",
+        "value": true,
+        "node": "authority_partition.captured_approver"
+      },
+      "error": null
+    },
+    {
+      "status": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 1.0,
+      "reasoning": "Designation chain is formally present but substantively compromised, OR designation_root is null. (field=structural_flags.captured_approver, value=True)",
+      "latency_ms": 1,
+      "raw_response": {
+        "evaluated_predicates": 3,
+        "subgraph": "authority",
+        "field": "structural_flags.captured_approver",
+        "value": true,
+        "node": "authority_partition.captured_approver"
+      },
+      "error": null
+    }
+  ],
+  "aggregate": {
+    "n_runs": 5,
+    "majority_status": "REJECT",
+    "majority_status_share": 1.0,
+    "status_distribution": {
+      "REJECT": 5
+    },
+    "majority_primary_node": "authority_partition.captured_approver",
+    "majority_primary_node_share": 1.0,
+    "primary_node_distribution": {
+      "authority_partition.captured_approver": 5
+    },
+    "latency_ms_min": 1,
+    "latency_ms_max": 1,
+    "latency_ms_median": 1,
+    "verdict_diverged": false,
+    "primary_node_diverged": false
+  }
+}

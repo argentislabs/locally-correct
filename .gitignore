@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Environments
+.env
+.envrc
+.python-version
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Secrets — explicit defense
+*.key
+*.pem
+wallet/
+*api_key*
+*OPENAI*
+
+# Cleanliness gate — held private (see README)
+eval/results/cleanliness/
+eval/verify_cleanliness.py
+
+# Internal seed corpus — held private (see README)
+eval/records/seeds/
+
+# Build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

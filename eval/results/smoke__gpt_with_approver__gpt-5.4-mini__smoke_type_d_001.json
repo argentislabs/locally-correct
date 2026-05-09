@@ -1,0 +1,22 @@
+{
+  "config": "gpt_with_approver",
+  "model": "gpt-5.4-mini",
+  "record_path": "eval/records/handcrafted/type_d_smoke.json",
+  "sample_id": "smoke_type_d_001",
+  "gold_label": "REJECT",
+  "violation_family": "captured",
+  "verdict": {
+    "status": "REJECT",
+    "primary_failure_node": "authority_partition.captured_approver",
+    "confidence": 0.98,
+    "reasoning": "The transaction itself matches the stated intent and appears technically well-formed, but the approver\u2019s designation chain has a null designation_root, meaning the approver lacks a valid externally-rooted authority chain. That is an upstream authority failure that invalidates the approval regardless of the transaction\u2019s alignment.",
+    "latency_ms": 1569,
+    "raw_response": {
+      "decision": "REJECT",
+      "primary_failure_node": "authority_partition.captured_approver",
+      "confidence": 0.98,
+      "reasoning": "The transaction itself matches the stated intent and appears technically well-formed, but the approver\u2019s designation chain has a null designation_root, meaning the approver lacks a valid externally-rooted authority chain. That is an upstream authority failure that invalidates the approval regardless of the transaction\u2019s alignment."
+    },
+    "error": null
+  }
+}

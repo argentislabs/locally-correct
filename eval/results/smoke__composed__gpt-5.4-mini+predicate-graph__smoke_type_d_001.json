@@ -1,0 +1,79 @@
+{
+  "config": "composed",
+  "model": "gpt-5.4-mini+predicate-graph",
+  "record_path": "eval/records/handcrafted/type_d_smoke.json",
+  "sample_id": "smoke_type_d_001",
+  "gold_label": "REJECT",
+  "violation_family": "captured",
+  "verdict": {
+    "status": "REJECT",
+    "primary_failure_node": "authority_partition.captured_approver",
+    "confidence": 0.98,
+    "reasoning": "AUTHORITY: no link in designation_chain terminates at an externally-rooted authority (roots seen: [None])",
+    "latency_ms": 2330,
+    "raw_response": {
+      "alignment_subgraph": {
+        "status": "PASS",
+        "primary_failure_node": null,
+        "confidence": 0.98,
+        "reasoning": "The transaction faithfully matches the intent: it deposits 2,500,000 USDC into Compound V2\u2019s cUSDC market via the standard approve-then-mint flow, with the correct token, amount, and protocol address. The artifact is technically coherent, uses a plausible gas budget, and shows no visible sanctions or adversarial parameter patterns.",
+        "latency_ms": 2329,
+        "raw_response": {
+          "decision": "PASS",
+          "primary_failure_node": null,
+          "confidence": 0.98,
+          "reasoning": "The transaction faithfully matches the intent: it deposits 2,500,000 USDC into Compound V2\u2019s cUSDC market via the standard approve-then-mint flow, with the correct token, amount, and protocol address. The artifact is technically coherent, uses a plausible gas budget, and shows no visible sanctions or adversarial parameter patterns."
+        },
+        "error": null
+      },
+      "authority_subgraph": {
+        "status": "REJECT",
+        "primary_failure_node": "authority_partition.captured_approver",
+        "confidence": 1.0,
+        "reasoning": "no link in designation_chain terminates at an externally-rooted authority (roots seen: [None])",
+        "latency_ms": 0,
+        "raw_response": {
+          "node_verdicts": [
+            {
+              "node_id": "authority_partition.signature_forgery",
+              "status": "PASS",
+              "reason": ""
+            },
+            {
+              "node_id": "authority_partition.signature_coercion",
+              "status": "PASS",
+              "reason": ""
+            },
+            {
+              "node_id": "authority_partition.captured_approver",
+              "status": "FAIL",
+              "reason": "no link in designation_chain terminates at an externally-rooted authority (roots seen: [None])"
+            },
+            {
+              "node_id": "authority_partition.undisclosed_conflict_of_interest",
+              "status": "PASS",
+              "reason": ""
+            },
+            {
+              "node_id": "authority_partition.collusion_proposer_approver",
+              "status": "PASS",
+              "reason": ""
+            },
+            {
+              "node_id": "authority_partition.separation_of_duties_violation",
+              "status": "PASS",
+              "reason": ""
+            },
+            {
+              "node_id": "authority_partition.designation_drift",
+              "status": "PASS",
+              "reason": ""
+            }
+          ]
+        },
+        "error": null
+      }
+    },
+    "error": null
+  }
+}

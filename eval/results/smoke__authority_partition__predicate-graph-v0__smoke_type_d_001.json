@@ -1,0 +1,55 @@
+{
+  "config": "authority_partition",
+  "model": "predicate-graph-v0",
+  "record_path": "eval/records/handcrafted/type_d_smoke.json",
+  "sample_id": "smoke_type_d_001",
+  "gold_label": "REJECT",
+  "violation_family": "captured",
+  "verdict": {
+    "status": "REJECT",
+    "primary_failure_node": "authority_partition.captured_approver",
+    "confidence": 1.0,
+    "reasoning": "no link in designation_chain terminates at an externally-rooted authority (roots seen: [None])",
+    "latency_ms": 0,
+    "raw_response": {
+      "node_verdicts": [
+        {
+          "node_id": "authority_partition.signature_forgery",
+          "status": "PASS",
+          "reason": ""
+        },
+        {
+          "node_id": "authority_partition.signature_coercion",
+          "status": "PASS",
+          "reason": ""
+        },
+        {
+          "node_id": "authority_partition.captured_approver",
+          "status": "FAIL",
+          "reason": "no link in designation_chain terminates at an externally-rooted authority (roots seen: [None])"
+        },
+        {
+          "node_id": "authority_partition.undisclosed_conflict_of_interest",
+          "status": "PASS",
+          "reason": ""
+        },
+        {
+          "node_id": "authority_partition.collusion_proposer_approver",
+          "status": "PASS",
+          "reason": ""
+        },
+        {
+          "node_id": "authority_partition.separation_of_duties_violation",
+          "status": "PASS",
+          "reason": ""
+        },
+        {
+          "node_id": "authority_partition.designation_drift",
+          "status": "PASS",
+          "reason": ""
+        }
+      ]
+    },
+    "error": null
+  }
+}
